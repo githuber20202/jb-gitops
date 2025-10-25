@@ -30,11 +30,6 @@ resources:
     cpu: 100m
     memory: 128Mi
 
-# Environment variables (optional - for AWS credentials)
+# Environment variables - AWS credentials loaded from Secret via envFrom
+# The Secret 'aws-credentials' is created by Terraform during EC2 provisioning
 env: []
-  # - name: AWS_ACCESS_KEY_ID
-  #   value: "your-key"
-  # - name: AWS_SECRET_ACCESS_KEY
-  #   value: "your-secret"
-  # - name: AWS_DEFAULT_REGION
-  #   value: "us-east-1"

@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: {{ include "aws-resources-viewer.fullname" . }}
   labels:
-    {{- include "aws-resources-viewer.labels" . | nindent  4 }}
+    {{- include "aws-resources-viewer.labels" . | nindent 4 }}
 spec:
   replicas: {{ .Values.replicaCount }}
   selector:
@@ -22,6 +22,9 @@ spec:
         - name: http
           containerPort: {{ .Values.service.targetPort }}
           protocol: TCP
+        envFrom:
+        - secretRef:
+            name: aws-credentials
         {{- if .Values.env }}
         env:
           {{- toYaml .Values.env | nindent 10 }}
