@@ -28,7 +28,7 @@ spec:
         {{- end }}
         resources:
           {{- toYaml .Values.resources | nindent 10 }}
-        livenessProbe:
+        {% comment %} livenessProbe:
           httpGet:
             path: /
             port: http
@@ -39,4 +39,4 @@ spec:
             path: /
             port: http
           initialDelaySeconds: 5
-          periodSeconds: 5
+          periodSeconds: 5 {% endcomment %}
