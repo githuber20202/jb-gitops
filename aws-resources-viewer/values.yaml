@@ -1,0 +1,40 @@
+# Default values for aws-resources-viewer
+replicaCount: 1
+
+# Docker image settings
+# Update the tag as needed; Jenkins will handle updates
+# For more information, see the Jenkins pipeline configuration.
+image:
+  repository: formy5000/resources_viewer
+  pullPolicy: IfNotPresent
+  tag: "latest"  # Jenkins will update this!
+
+nameOverride: ""
+fullnameOverride: ""
+
+# Service configuration
+# The application listens on port 5001 by default
+service:
+  type: NodePort
+  port: 5001
+  targetPort: 5001
+  nodePort: 30080
+
+# Resource requests and limits
+# Adjust these values based on your cluster's capacity and application needs
+resources:
+  limits:
+    cpu: 200m
+    memory: 256Mi
+  requests:
+    cpu: 100m
+    memory: 128Mi
+
+# Environment variables (optional - for AWS credentials)
+env: []
+  # - name: AWS_ACCESS_KEY_ID
+  #   value: "your-key"
+  # - name: AWS_SECRET_ACCESS_KEY
+  #   value: "your-secret"
+  # - name: AWS_DEFAULT_REGION
+  #   value: "us-east-1"
