@@ -7,7 +7,7 @@ replicaCount: 1
 image:
   repository: formy5000/resources_viewer
   pullPolicy: IfNotPresent
-  tag: "latest"  # Jenkins will update this!
+  tag: "sha-1dcdadc"
 
 nameOverride: ""
 fullnameOverride: ""
