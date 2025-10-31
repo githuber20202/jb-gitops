@@ -14,7 +14,6 @@ spec:
       labels:
         {{- include "aws-resources-viewer.selectorLabels" . | nindent 8 }}
     spec:
-      serviceAccountName: {{ include "aws-resources-viewer.fullname" . }}
       containers:
       - name: {{ .Chart.Name }}
         image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
@@ -26,13 +25,9 @@ spec:
         envFrom:
         - secretRef:
             name: aws-credentials
-        env:
-        - name: POD_NAMESPACE
-          valueFrom:
-            fieldRef:
-              fieldPath: metadata.namespace
         {{- if .Values.env }}
-        {{- toYaml .Values.env | nindent 8 }}
+        env:
+          {{- toYaml .Values.env | nindent 10 }}
         {{- end }}
         resources:
           {{- toYaml .Values.resources | nindent 10 }}

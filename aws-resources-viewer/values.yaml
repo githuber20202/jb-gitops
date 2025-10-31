@@ -34,11 +34,9 @@ resources:
 # The Secret 'aws-credentials' is created by Terraform during EC2 provisioning
 env: []
 
-# KEDA Auto-Scaling Configuration
-keda:
+# HPA (Horizontal Pod Autoscaler) Configuration
+autoscaling:
   enabled: true
   minReplicas: 1
   maxReplicas: 5
-  pollingInterval: 30
-  cooldownPeriod: 60
-  cpuThreshold: "50"
+  targetCPUUtilizationPercentage: 50
