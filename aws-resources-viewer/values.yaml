@@ -33,3 +33,12 @@ resources:
 # Environment variables - AWS credentials loaded from Secret via envFrom
 # The Secret 'aws-credentials' is created by Terraform during EC2 provisioning
 env: []
+
+# KEDA Auto-Scaling Configuration
+keda:
+  enabled: true
+  minReplicas: 1
+  maxReplicas: 5
+  pollingInterval: 30
+  cooldownPeriod: 60
+  cpuThreshold: "50"
