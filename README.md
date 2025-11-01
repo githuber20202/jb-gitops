@@ -67,12 +67,8 @@ graph TB
         L --> P[RBAC]
         M -->|Manages| Q[Pods 1-5]
         O -->|Scales| M
-        N -->|Exposes| R[NodePort 30080]
+    N -->|Exposes| R[NodePort 30080]
     end
-    
-    style J fill:#f9f,stroke:#333,stroke-width:4px
-    style I fill:#ff9,stroke:#333,stroke-width:2px
-    style Q fill:#9f9,stroke:#333,stroke-width:2px
 ```
 
 ### GitOps Workflow
@@ -156,11 +152,6 @@ graph LR
     end
     
     EXT[External User] -->|http://IP:30080| S
-    
-    style D fill:#326CE5,stroke:#fff,color:#fff
-    style HPA fill:#ff9,stroke:#333
-    style S fill:#9f9,stroke:#333
-    style SA fill:#f99,stroke:#333
 ```
 
 ## 📦 Project Structure
@@ -206,9 +197,6 @@ graph LR
     B -->|< 50%| D[Scale Down]
     C -->|add pods| E[Max: 5 replicas]
     D -->|remove pods<br/>after 5 min| F[Min: 1 replica]
-    
-    style C fill:#f99,stroke:#333
-    style D fill:#9f9,stroke:#333
 ```
 
 **Configuration:**
@@ -233,9 +221,6 @@ graph TD
     F[Application Pod] -.->|uses| A
     F -->|API calls| G[Kubernetes API]
     G -.->|authorized by| C
-    
-    style A fill:#f99,stroke:#333
-    style C fill:#9f9,stroke:#333
 ```
 
 **Permissions Granted:**
@@ -810,9 +795,6 @@ graph TD
     E -->|Wait 5 minutes| F[CPU < 50%]
     F -->|HPA detects| G[Scale down decision]
     G -->|Remove pods| A
-    
-    style B fill:#f99,stroke:#333
-    style D fill:#9f9,stroke:#333
 ```
 
 **Timeline:**
