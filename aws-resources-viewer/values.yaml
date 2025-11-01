@@ -7,7 +7,7 @@ replicaCount: 1
 image:
   repository: formy5000/resources_viewer
   pullPolicy: IfNotPresent
-  tag: "sha-9469f16"
+  tag: "sha-32053ea"
 
 nameOverride: ""
 fullnameOverride: ""
